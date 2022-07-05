@@ -1,6 +1,7 @@
 package com.stage.proxym.services;
 
 import com.stage.proxym.entities.Expenses;
+import com.stage.proxym.entities.Income;
 import com.stage.proxym.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,15 @@ public class userService implements IuserService {
         Expenses expense  = expenseRepo.findById(idExp).orElse(null);
         expense.setUser(user);
         user.getExpenses().add(expense);
+        return userRepo.save(user);
+    }
+
+    @Override
+    public User assignIncomeToUser(Long idInc, Long idUser) {
+        User user = userRepo.findById(idUser).orElse(null);
+        Income income  = incomeRepo.findById(idInc).orElse(null);
+        income.setUser(user);
+        user.getIncomes().add(income);
         return userRepo.save(user);
     }
 

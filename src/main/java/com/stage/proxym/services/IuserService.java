@@ -11,6 +11,7 @@ public interface IuserService {
     public List<User> getAll();
     public void deleteUser(long idUser);
     public User assignExpenseToUser(Long idExp, Long idUser);
+    public User assignIncomeToUser(Long idInc, Long idUser);
     public List<User> retrieveAllUser();
 
 }
