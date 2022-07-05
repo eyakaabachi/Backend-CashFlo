@@ -34,5 +34,10 @@ public class userController {
     public void assignIncomeToUser(@PathVariable("idInc") Long idInc, @PathVariable("idUser") Long idUser) {
         iuserservice.assignIncomeToUser(idInc, idUser);
     }
+    @GetMapping("/getuser/{idUser}")
+    @ResponseBody
+    public User getUserById(@PathVariable("idUser") Long idUser) {
+        return iuserservice.getUserById(idUser);
+    }
 
     }
