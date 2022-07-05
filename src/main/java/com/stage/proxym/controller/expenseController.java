@@ -16,7 +16,7 @@ public class expenseController {
     public Expenses addExpense(@RequestBody Expenses ex) {
         return iexpservice.addExpense(ex);
     }
-    @DeleteMapping("/deleteIncome/{idIncome}")
+    @DeleteMapping("/deleteidExpense/{idExpense}")
     @ResponseBody
     public void deleteExpense(@PathVariable("idExpense") Long idExpense) {
         iexpservice.deleteExpense(idExpense);
