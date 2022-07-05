@@ -15,7 +15,9 @@ public class Income implements Serializable {
     private Long IdIncome;
     private String IncomeSource;
     private float IncomeMoney;
+    @Temporal(TemporalType.DATE)
     private Date IncomeStartDate;
+    @Temporal(TemporalType.DATE)
     private Date IncomeExpireDate;
     private String Description;
 

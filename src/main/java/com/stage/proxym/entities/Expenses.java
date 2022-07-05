@@ -17,9 +17,11 @@ public class Expenses  implements Serializable {
     @Enumerated(EnumType.STRING)
     private Type type;
     private float ExpenseCash;
+    @Temporal(TemporalType.DATE)
     private Date ExpenseExpireDate;
     private Boolean ExpensePayment;
     private float ExpensePrice;
+    @Temporal(TemporalType.DATE)
     private Date ExpenseRegistrationDate;
 
     @ManyToOne

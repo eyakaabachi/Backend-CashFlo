@@ -19,6 +19,7 @@ public class User implements Serializable {
     private String Passwd;
     @Enumerated(EnumType.STRING)
     private Gender gender;
+    @Temporal(TemporalType.DATE)
     private Date BirthDate;
     private Long PhoneNum;
     private String Address;
