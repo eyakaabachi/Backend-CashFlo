@@ -12,14 +12,14 @@ public class Income implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdIncome;
-    private String IncomeSource;
-    private float IncomeMoney;
+    private Long idIncome;
+    private String incomeSource;
+    private float incomeMoney;
     @Temporal(TemporalType.DATE)
-    private Date IncomeStartDate;
+    private Date incomeStartDate;
     @Temporal(TemporalType.DATE)
-    private Date IncomeExpireDate;
-    private String Description;
+    private Date incomeExpireDate;
+    private String description;
 
     @ManyToOne
     User user;

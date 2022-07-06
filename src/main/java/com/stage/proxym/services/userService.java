@@ -1,8 +1,10 @@
 package com.stage.proxym.services;
 
+import com.stage.proxym.dto.UserDto;
 import com.stage.proxym.entities.Expenses;
 import com.stage.proxym.entities.Income;
 import com.stage.proxym.entities.User;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.stage.proxym.repositories.userRepository;
@@ -22,9 +24,13 @@ public class userService implements IuserService {
     @Autowired
     incomeRepository incomeRepo;
 
+    ModelMapper modelMapper = new ModelMapper();
+
     @Override
-    public User addUser(User u) {
-        return userRepo.save(u);
+    public User addUser(UserDto u) {
+
+        User user = modelMapper.map(u,User.class);
+        return userRepo.save(user);
     }
 
     @Override
@@ -71,6 +77,9 @@ public class userService implements IuserService {
         List<User> users = (List<User>)userRepo.findAll();
         return users;
     }
+
+
+
 
 
 

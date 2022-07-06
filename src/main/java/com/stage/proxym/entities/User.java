@@ -12,20 +12,20 @@ import java.util.List;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdUser;
-    private String FirstName;
-    private String LastName;
-    private String Email;
-    private String Passwd;
+    private Long idUser;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String passwd;
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @Temporal(TemporalType.DATE)
-    private Date BirthDate;
-    private Long PhoneNum;
-    private String Address;
+    private Date birthDate;
+    private Long phoneNum;
+    private String address;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private String Profession;
+    private String profession;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
     private List<Expenses> expenses;

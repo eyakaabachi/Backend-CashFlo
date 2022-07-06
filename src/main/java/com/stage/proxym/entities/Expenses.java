@@ -13,16 +13,16 @@ public class Expenses  implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long IdExpense;
+    private Long idExpense;
     @Enumerated(EnumType.STRING)
     private Type type;
-    private float ExpenseCash;
+    private float expenseCash;
     @Temporal(TemporalType.DATE)
-    private Date ExpenseExpireDate;
-    private Boolean ExpensePayment;
-    private float ExpensePrice;
+    private Date expenseExpireDate;
+    private Boolean expensePayment;
+    private float expensePrice;
     @Temporal(TemporalType.DATE)
-    private Date ExpenseRegistrationDate;
+    private Date expenseRegistrationDate;
 
     @ManyToOne
     User user;

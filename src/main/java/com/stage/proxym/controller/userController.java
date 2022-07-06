@@ -1,5 +1,6 @@
 package com.stage.proxym.controller;
 
+import com.stage.proxym.dto.UserDto;
 import com.stage.proxym.entities.User;
 import com.stage.proxym.services.IuserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,8 @@ public class userController {
     IuserService iuserservice;
 
     @PostMapping("/add")
-    public User addUser(@RequestBody User u) {
-        return iuserservice.addUser(u);
+    public User addUser(@RequestBody UserDto u) {
+          return iuserservice.addUser(u);
     }
     @DeleteMapping("/deleteuser/{idUser}")
     @ResponseBody
