@@ -28,11 +28,11 @@ public class userController {
         return iuserservice.updateUser(u);
     }
 
-    @PutMapping("/modif/{idExp}/{idUser}")
+    @PutMapping("/assignexpense/{idExp}/{idUser}")
     public void assignExpenseToUser(@PathVariable("idExp") Long idExp, @PathVariable("idUser") Long idUser) {
         iuserservice.assignExpenseToUser(idExp, idUser);
     }
-    @PutMapping("/modifier/{idInc}/{idUser}")
+    @PutMapping("/assignincome/{idInc}/{idUser}")
     public void assignIncomeToUser(@PathVariable("idInc") Long idInc, @PathVariable("idUser") Long idUser) {
         iuserservice.assignIncomeToUser(idInc, idUser);
     }

@@ -7,7 +7,7 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Data
-public class incomeDto {
+public class IncomeDto {
     private String incomeSource;
     private float incomeMoney;
     private Date incomeStartDate;

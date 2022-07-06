@@ -33,4 +33,7 @@ public class User implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
     private List<Income> incomes;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+    private List<Notification> notifications;
 }
