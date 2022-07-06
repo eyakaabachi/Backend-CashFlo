@@ -1,5 +1,6 @@
 package com.stage.proxym.services;
 
+import com.stage.proxym.dto.ExpenseDto;
 import com.stage.proxym.dto.UserDto;
 import com.stage.proxym.entities.Expenses;
 import com.stage.proxym.entities.Income;
@@ -12,6 +13,7 @@ import com.stage.proxym.repositories.expenseRepository;
 import com.stage.proxym.repositories.incomeRepository;
 
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -40,6 +42,7 @@ public class userService implements IuserService {
 
     @Override
     public User getUserById(long idUser) {
+
         return userRepo.findById(idUser).orElse(null);
     }
 
@@ -61,7 +64,16 @@ public class userService implements IuserService {
         expense.setUser(user);
         user.getExpenses().add(expense);
         return userRepo.save(user);
+//        Expenses expense = expenseRepo.findById(Long.valueOf(idExp)).orElse(null);
+//        Set<ExpenseDto> list = null;
+//        ExpenseDto expenseDto = modelMapper.map(expense,ExpenseDto.class);
+//        list.add(expenseDto);
+//        User user = userRepo.findById(Long.valueOf(idUser)).orElse(null);
+//        UserDto userDto = modelMapper.map(user,UserDto.class);
+//        userDto.setExpenseDtoSet(list);
+//        return userRepo.save(modelMapper.map(userDto, User.class));
     }
+
 
     @Override
     public User assignIncomeToUser(Long idInc, Long idUser) {

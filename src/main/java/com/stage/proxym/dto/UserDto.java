@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 public class UserDto {
@@ -23,5 +24,6 @@ public class UserDto {
     private String Address;
     private Role role;
     private String Profession;
+    Set<ExpenseDto> expenseDtoSet;
 
 }

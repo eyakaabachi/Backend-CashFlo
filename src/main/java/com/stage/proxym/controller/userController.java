@@ -27,7 +27,8 @@ public class userController {
     public User updateUser(@RequestBody User u) {
         return iuserservice.updateUser(u);
     }
-    @PutMapping("/modifier/{idExp}/{idUser}")
+
+    @PutMapping("/modif/{idExp}/{idUser}")
     public void assignExpenseToUser(@PathVariable("idExp") Long idExp, @PathVariable("idUser") Long idUser) {
         iuserservice.assignExpenseToUser(idExp, idUser);
     }

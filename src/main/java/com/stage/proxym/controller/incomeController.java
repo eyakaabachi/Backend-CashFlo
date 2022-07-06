@@ -27,7 +27,7 @@ public class incomeController {
     public Income updateIncome(@RequestBody Income i) {
         return iincomeservice.updateIncome(i);
     }
-    @GetMapping("/getIncome/{idIncome}")
+    @GetMapping("/getincome/{idIncome}")
     @ResponseBody
     public Income getIncomeById(@PathVariable("idIncome") Long idIncome) {
         return iincomeservice.getIncomeById(idIncome);
