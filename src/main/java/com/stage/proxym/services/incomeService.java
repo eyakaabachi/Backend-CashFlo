@@ -1,17 +1,16 @@
 package com.stage.proxym.services;
 
 import com.stage.proxym.entities.Income;
-import com.stage.proxym.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.stage.proxym.repositories.incomeRepository;
+import com.stage.proxym.repositories.IncomeRepository;
 
 import java.util.List;
 
 @Service
 public class incomeService implements IincomeService {
     @Autowired
-    incomeRepository incomeRepo;
+    IncomeRepository incomeRepo;
 
     @Override
     public Income addIncome(Income i) {

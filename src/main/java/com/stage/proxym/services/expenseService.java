@@ -1,10 +1,9 @@
 package com.stage.proxym.services;
 
 import com.stage.proxym.entities.Expenses;
-import com.stage.proxym.entities.Income;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.stage.proxym.repositories.expenseRepository;
+import com.stage.proxym.repositories.ExpenseRepository;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
 public class expenseService implements IexpenseService {
 
     @Autowired
-    expenseRepository expenseRepo;
+    ExpenseRepository expenseRepo;
 
     @Override
     public Expenses addExpense(Expenses ex) {

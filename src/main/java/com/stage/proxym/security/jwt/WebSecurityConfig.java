@@ -1,4 +1,6 @@
-package com.stage.proxym.security;
+package com.stage.proxym.security.jwt;
+
+import com.stage.proxym.security.service.UserDetailServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +14,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableWebSecurity
@@ -22,7 +23,7 @@ import org.springframework.context.annotation.Configuration;
         prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    UserDetailsServiceImpl userDetailsService;
+    UserDetailServiceImp userDetailsService;
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
     @Bean
