@@ -1,6 +1,6 @@
 package com.stage.proxym.security.jwt;
 
-import com.stage.proxym.security.service.UserDetailsService;
+import com.stage.proxym.security.service.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -19,16 +19,16 @@ import java.util.concurrent.ConcurrentHashMap;
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${esprit.app.jwtSecret}")
+    @Value("${proxym.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${esprit.app.jwtExpirationMs}")
+    @Value("${proxym.jwtExpirationMs}")
     private int jwtExpirationMs;
     private Map<String, Boolean> jwtMap = new ConcurrentHashMap<>();
 
     public String generateJwtToken(Authentication authentication) {
 
-        UserDetailsService userPrincipal = (UserDetailsService) authentication.getPrincipal();
+        UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
         return Jwts.builder()
                 .setSubject((userPrincipal.getUsername()))

@@ -1,6 +1,6 @@
 package com.stage.proxym.security.jwt;
 
-import com.stage.proxym.security.service.UserDetailServiceImp;
+import com.stage.proxym.security.service.UserDetailsServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +24,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private JwtUtils jwtUtils;
 
     @Autowired
-    private UserDetailServiceImp userDetailsService;
+    private UserDetailsServiceImpl userDetailsService;
 
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 

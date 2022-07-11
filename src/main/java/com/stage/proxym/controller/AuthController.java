@@ -16,7 +16,7 @@ import com.stage.proxym.payload.response.JwtResponse;
 import com.stage.proxym.payload.response.MessageResponse;
 import com.stage.proxym.repositories.RoleRepository;
 import com.stage.proxym.security.jwt.JwtUtils;
-import com.stage.proxym.security.service.UserDetailsService;
+import com.stage.proxym.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -60,7 +60,7 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtutils.generateJwtToken(authentication);
 
-        UserDetailsService userDetails = (UserDetailsService) authentication.getPrincipal();
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
