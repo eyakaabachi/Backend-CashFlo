@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("notification")
 public class notificationController {
     @Autowired
     NotifService notifservice;

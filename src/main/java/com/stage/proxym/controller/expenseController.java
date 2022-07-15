@@ -1,10 +1,12 @@
 package com.stage.proxym.controller;
 
 import com.stage.proxym.entities.Expenses;
-import com.stage.proxym.entities.Income;
 import com.stage.proxym.services.IexpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 @RestController
 @RequestMapping("expense")
@@ -31,5 +33,17 @@ public class expenseController {
     @ResponseBody
     public Expenses getExpenseById(@PathVariable("idExpense") Long idExpense) {
         return iexpservice.getExpenseById(idExpense);
+    }
+    @GetMapping("/getsumofexpenses/{expenseStartDate}/{expenseEndDate}")
+    @ResponseBody
+    public float totalSumOfExpensePerMonth(
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd")  Date expenseStartDate,
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd")  Date expenseEndDate){
+        return iexpservice.totalSumOfExpensePerMonth(expenseStartDate,expenseEndDate);
+    }
+    @GetMapping("/getremainingcash/{idExpense}")
+    @ResponseBody
+    public float RemainingCash (@PathVariable("idExpense") Long idExpense){
+        return iexpservice.RemainingCash(idExpense);
     }
 }

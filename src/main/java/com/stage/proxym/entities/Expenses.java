@@ -23,6 +23,8 @@ public class Expenses  implements Serializable {
     private float expensePrice;
     @Temporal(TemporalType.DATE)
     private Date expenseRegistrationDate;
+    @Temporal(TemporalType.DATE)
+    private Date expenseEndDate;
 
     @ManyToOne
     User user;

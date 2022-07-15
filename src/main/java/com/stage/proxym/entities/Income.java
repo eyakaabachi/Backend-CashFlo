@@ -18,6 +18,8 @@ public class Income implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date incomeStartDate;
     @Temporal(TemporalType.DATE)
+    private Date incomeEndDate;
+    @Temporal(TemporalType.DATE)
     private Date incomeExpireDate;
     private String description;
 
