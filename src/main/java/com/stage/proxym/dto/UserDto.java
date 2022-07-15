@@ -1,13 +1,9 @@
 package com.stage.proxym.dto;
 
 import com.stage.proxym.entities.Gender;
-import com.stage.proxym.entities.Role;
+import com.stage.proxym.entities.ERole;
 import lombok.Data;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.Set;
 
@@ -22,7 +18,7 @@ public class UserDto {
     private Date BirthDate;
     private Long PhoneNum;
     private String Address;
-    private Role role;
+    private ERole role;
     private String Profession;
     Set<ExpenseDto> expenseDtoSet;
 

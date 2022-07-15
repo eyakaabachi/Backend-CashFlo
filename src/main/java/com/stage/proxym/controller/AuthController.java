@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import com.stage.proxym.entities.ERole;
 import com.stage.proxym.entities.Role;
-import com.stage.proxym.entities.Roles;
 import com.stage.proxym.entities.User;
 import com.stage.proxym.payload.request.LoginRequest;
 import com.stage.proxym.payload.request.SignupRequest;
@@ -97,23 +97,29 @@ public class AuthController {
         // User user = new User (signUpRequest.getUsername(),signUpRequest.getEmail(), encoder.encode(signUpRequest.getPassword()));
 
         Set<String> strRoles = signUpRequest.getRole();
-        Set<Roles> roles = new HashSet<>();
+        Set<Role> roles = new HashSet<>();
 
         if (strRoles == null) {
-            Roles userRole = roleRepository.findByName(Role.SIMPLEUSER)
+            Role userRole = roleRepository.findByName(ERole.ROLE_USER)
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
             roles.add(userRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
-                    case "supervisor":
-                        Roles adminRole = roleRepository.findByName(Role.SUPERVISOR)
+                    case "admin":
+                        Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
 
                         break;
+                    case "mod":
+                        Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(modRole);
+
+                        break;
                     default:
-                        Roles userRole = roleRepository.findByName(Role.SIMPLEUSER)
+                        Role userRole = roleRepository.findByName(ERole.ROLE_USER)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(userRole);
                 }
@@ -122,7 +128,6 @@ public class AuthController {
 
         user.setRoles(roles);
         userRepository.save(user);
-
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
 }

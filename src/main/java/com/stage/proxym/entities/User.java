@@ -32,14 +32,14 @@ public class User implements Serializable {
     private Long phoneNum;
     private String address;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private ERole role;
     private String profession;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Roles> roles = new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
 
     public User(String username, String email, String password) {
         super();
@@ -56,4 +56,8 @@ public class User implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
     private List<Notification> notifications;
+
+    public User() {
+        super();
+    }
 }
