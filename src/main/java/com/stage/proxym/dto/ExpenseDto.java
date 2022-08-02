@@ -1,14 +1,17 @@
 package com.stage.proxym.dto;
 
-import com.stage.proxym.entities.Type;
-import lombok.Data;
+import com.stage.proxym.expense.entity.Type;
+import lombok.*;
 
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class ExpenseDto {
+    private long idExpense;
     private Type type;
     private float expenseCash;
     private Date expenseExpireDate;

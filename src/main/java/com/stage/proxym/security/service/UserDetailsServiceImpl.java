@@ -1,7 +1,7 @@
 package com.stage.proxym.security.service;
 
-import com.stage.proxym.entities.User;
-import com.stage.proxym.repositories.UserRepository;
+import com.stage.proxym.user.entity.User;
+import com.stage.proxym.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

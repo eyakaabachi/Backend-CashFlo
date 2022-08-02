@@ -1,7 +1,7 @@
 package com.stage.proxym.security.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.stage.proxym.entities.User;
+import com.stage.proxym.user.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
